@@ -1,5 +1,5 @@
 # Assignment 1
-** Due Feb 1st before class **
+**Due Feb 1st before class**
 
 ## Task 
 

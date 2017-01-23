@@ -1,5 +1,5 @@
 # Assignment 1
-** Due Jan 25th before class **
+**Due Jan 25th before class**
 
 ## Task 1
 Convert the following to rgb format:
