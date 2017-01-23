@@ -27,6 +27,11 @@ b9 = b * 16^1 + 9 * 16^0
 
 ## Task 2
 Convert the following to hex format:
+e.g: rgb(123,56,245) = #7b38f5
+123 = 16 * 7 + 1 * 11 = 7b
+56  = 16 * 3 + 1 * 8  = 38
+245 = 16 * 15 + 1 * 5 = f5
+
 * rgb(12,238,13)
 * rgb(23,126,52)
 * rgb(112,234,21)
@@ -37,3 +42,8 @@ Convert the following to hex format:
 ## Task 3
 List atleast 4 css properties that use rgb or hex colors as part of
 their values.
+
+1.
+2.
+3.
+4.
