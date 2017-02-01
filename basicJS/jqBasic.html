@@ -10,10 +10,23 @@
       background-color: purple;
     }
   </style>
+  <script>
+    function boxClicked()
+    {
+      $("#box").css("background-color", $("#color").val());
+      $("#box").css("height", $("#height").val());
+      $("#box").css("width", $("#width").val());
+    }
+  </script>
 </head>
 
 <body>
-  <button onclick='$("#box").css("border", "10px solid red")'> Click me</button>
+  <input id='color'>
+  <input id='height'>
+  <input id='width'>
+  <button onclick='boxClicked()'> Change </button>
+  <button onclick='$("#box").hide()'> Hide </button>
+  <button onclick='$("#box").show()'> Show </button>
   <div id='box'> </div>
 </body>
 
