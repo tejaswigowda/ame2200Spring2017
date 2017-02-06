@@ -16,13 +16,20 @@ var imageList = [
     var numMU = "";
     var ssMU = "";
     for(var i = 0; i < imageList.length; i++){
-      numMU += '<button>' + (i+1) + "</button>";
+      numMU += '<button onclick="goToSlide(' + i + ')">' + (i+1) + "</button>";
       ssMU += '<div class="slide" style="background-image:url(' + imageList[i] + ')">' + "</div>";
     }
 
     document.getElementById("numWrapper").innerHTML = numMU;
-
     document.getElementById("ssWrapper").innerHTML = ssMU;
+  }
+
+
+  function goToSlide(n)
+  {
+    $(".slide").hide();
+    $(".slide:nth-of-type(" + n + ")").show();
+
   }
 </script>
 <style>
