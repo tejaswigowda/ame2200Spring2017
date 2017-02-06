@@ -3,9 +3,56 @@
 <head>
 <script src='https://code.jquery.com/jquery-3.1.1.min.js'>
 </script>
+
+<style>
+body{
+  margin: 0px;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+}
+
+#ssWrapper
+{
+  width: 100%;
+  height: calc(100% - 80px);
+}
+
+#numWrapper{
+  height: 60px;
+  position: absolute;
+  bottom: 10px;
+  width: calc(100% - 120px);
+}
+
+#arrowWrapper
+{
+  height: 60px;
+  position: absolute;
+  bottom: 10px;
+  width: 120px;
+  right: 0px;
+}
+
+#arrowWrapper button
+{
+  width: 50px;
+  height: 50px;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+</style>
+
 </head>
 
 <body>
+<div id='ssWrapper'> </div>
+<div id='numWrapper'> </div>
+<div id='arrowWrapper'> 
+  <button onclick='prev()'> < </button>
+  <button onclick='next()'> > </button>
+</div>
 </body>
 
 </html>
