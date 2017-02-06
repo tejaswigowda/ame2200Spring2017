@@ -4,6 +4,26 @@
 <script src='https://code.jquery.com/jquery-3.1.1.min.js'>
 </script>
 
+<script>
+var imageList = [
+  'https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Portsmouth_Cathedral_Nave%2C_Portsmouth%2C_Hampshire%2C_UK_-_Diliff.jpg/350px-Portsmouth_Cathedral_Nave%2C_Portsmouth%2C_Hampshire%2C_UK_-_Diliff.jpg',
+  'https://upload.wikimedia.org/wikipedia/commons/1/10/Portsmouth_Cathedral_Nave%2C_Portsmouth%2C_Hampshire%2C_UK_-_Diliff.jpg'
+  ];
+
+
+  function buildSS()
+  {
+    var numMU = "";
+    var ssMU = "";
+    for(var i = 0; i < imageList.length; i++){
+      numMU += '<button>' + (i+1) + "</button>";
+    }
+
+    document.getElementById("numWrapper").innerHTML = numMU;
+    document.getElementById("ssWrapper").innerHTML = ssMU;
+
+  }
+</script>
 <style>
 body{
   margin: 0px;
@@ -47,7 +67,7 @@ body{
 
 </head>
 
-<body>
+<body onload='buildSS()'>
 <div id='ssWrapper'> </div>
 <div id='numWrapper'> </div>
 <div id='arrowWrapper'> 
