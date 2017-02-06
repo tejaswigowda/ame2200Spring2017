@@ -17,11 +17,12 @@ var imageList = [
     var ssMU = "";
     for(var i = 0; i < imageList.length; i++){
       numMU += '<button>' + (i+1) + "</button>";
+      ssMU += '<div class="slide" style="background-image:url(' + imageList[i] + ')">' + "</div>";
     }
 
     document.getElementById("numWrapper").innerHTML = numMU;
-    document.getElementById("ssWrapper").innerHTML = ssMU;
 
+    document.getElementById("ssWrapper").innerHTML = ssMU;
   }
 </script>
 <style>
@@ -30,6 +31,13 @@ body{
   position: fixed;
   height: 100%;
   width: 100%;
+}
+
+.slide{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-size: contain;
 }
 
 #ssWrapper
