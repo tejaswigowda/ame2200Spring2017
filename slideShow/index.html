@@ -5,6 +5,8 @@
 </script>
 
 <script>
+var currSlide = 0;
+
 var imageList = [
   'https://upload.wikimedia.org/wikipedia/commons/1/10/Portsmouth_Cathedral_Nave%2C_Portsmouth%2C_Hampshire%2C_UK_-_Diliff.jpg',
   'https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Claude_Monet_-_The_Magpie_-_Google_Art_Project.jpg/350px-Claude_Monet_-_The_Magpie_-_Google_Art_Project.jpg',
@@ -35,6 +37,8 @@ var imageList = [
 
     $("#numWrapper button").removeClass('active');
     $("#numWrapper button:nth-of-type(" + (n+1) + ")").addClass('active');
+
+    currSlide = n;
   }
 </script>
 <style>
