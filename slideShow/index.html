@@ -6,8 +6,8 @@
 
 <script>
 var imageList = [
-  'https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Portsmouth_Cathedral_Nave%2C_Portsmouth%2C_Hampshire%2C_UK_-_Diliff.jpg/350px-Portsmouth_Cathedral_Nave%2C_Portsmouth%2C_Hampshire%2C_UK_-_Diliff.jpg',
-  'https://upload.wikimedia.org/wikipedia/commons/1/10/Portsmouth_Cathedral_Nave%2C_Portsmouth%2C_Hampshire%2C_UK_-_Diliff.jpg'
+  'https://upload.wikimedia.org/wikipedia/commons/1/10/Portsmouth_Cathedral_Nave%2C_Portsmouth%2C_Hampshire%2C_UK_-_Diliff.jpg',
+  'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Oenothera_rubricaulis_2014_G1.jpg/350px-Oenothera_rubricaulis_2014_G1.jpg'
   ];
 
 
@@ -28,7 +28,7 @@ var imageList = [
   function goToSlide(n)
   {
     $(".slide").hide();
-    $(".slide:nth-of-type(" + n + ")").show();
+    $(".slide:nth-of-type(" + (n+1) + ")").show();
 
   }
 </script>
