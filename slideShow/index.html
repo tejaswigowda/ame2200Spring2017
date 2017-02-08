@@ -24,6 +24,7 @@ var imageList = [
 
     document.getElementById("numWrapper").innerHTML = numMU;
     document.getElementById("ssWrapper").innerHTML = ssMU;
+    goToSlide(0);
   }
 
 
@@ -32,6 +33,8 @@ var imageList = [
     $(".slide").hide();
     $(".slide:nth-of-type(" + (n+1) + ")").show();
 
+    $("#numWrapper button").removeClass('active');
+    $("#numWrapper button:nth-of-type(" + (n+1) + ")").addClass('active');
   }
 </script>
 <style>
@@ -95,6 +98,9 @@ body{
   border: none;
 }
 
+button.active{
+  background-color: gold;
+}
 </style>
 
 </head>
