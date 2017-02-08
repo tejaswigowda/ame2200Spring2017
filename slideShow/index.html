@@ -32,14 +32,33 @@ var imageList = [
 
   function goToSlide(n)
   {
-    $(".slide").hide();
-    $(".slide:nth-of-type(" + (n+1) + ")").show();
+    $(".slide").hide(1000);
+    $(".slide:nth-of-type(" + (n+1) + ")").show(1000);
 
     $("#numWrapper button").removeClass('active');
     $("#numWrapper button:nth-of-type(" + (n+1) + ")").addClass('active');
 
     currSlide = n;
   }
+
+  function prev()
+  {
+    var prevSlide = currSlide - 1;
+    if(prevSlide < 0){
+      prevSlide = imageList.length - 1;
+    }
+    goToSlide(prevSlide);
+  }
+
+  function next()
+  {
+    var nextSlide = currSlide + 1;
+    if(nextSlide > imageList.length - 1){
+      nextSlide = 0;
+    }
+    goToSlide(nextSlide);
+  }
+
 </script>
 <style>
 body{
