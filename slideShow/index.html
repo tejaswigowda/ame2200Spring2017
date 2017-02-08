@@ -32,8 +32,8 @@ var imageList = [
 
   function goToSlide(n)
   {
-    $(".slide").fadeOut(1000);
-    $(".slide:nth-of-type(" + (n+1) + ")").fadeIn(1000);
+    $(".slide").animate({"margin-left": "-100%"}, 1000);
+    $(".slide:nth-of-type(" + (n+1) + ")").stop().animate({"margin-left": "0%"}, 1000);
 
     $("#numWrapper button").removeClass('active');
     $("#numWrapper button:nth-of-type(" + (n+1) + ")").addClass('active');
@@ -69,7 +69,6 @@ body{
 }
 
 .slide{
-  display: none;
   position: absolute;
   height: calc(100% - 80px);
   width: 100%;
