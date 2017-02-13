@@ -32,8 +32,14 @@ var imageList = [
 
   function goToSlide(n)
   {
-    $(".slide").animate({"margin-left": "-100%"}, 1000);
-    $(".slide:nth-of-type(" + (n+1) + ")").stop().animate({"margin-left": "0%"}, 1000);
+    for(var i = 0; i < imageList.length; i++){
+      if(i == n){
+        $(".slide:nth-of-type(" + (i+1) + ")").stop().animate({"margin-left": "0%"}, 1000);
+      }
+      else{
+        $(".slide:nth-of-type(" + (i+1) + ")").stop().animate({"margin-left": "-100%"}, 1000);
+      } 
+    }
 
     $("#numWrapper button").removeClass('active');
     $("#numWrapper button:nth-of-type(" + (n+1) + ")").addClass('active');
