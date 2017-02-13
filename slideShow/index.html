@@ -34,10 +34,19 @@ var imageList = [
   {
     for(var i = 0; i < imageList.length; i++){
       if(i == n){
-        $(".slide:nth-of-type(" + (i+1) + ")").stop().animate({"margin-left": "0%"}, 1000);
+        $(".slide:nth-of-type(" + (i+1) + ")").stop().animate({"margin-left": "0px"}, 1000);
       }
       else{
-        $(".slide:nth-of-type(" + (i+1) + ")").stop().animate({"margin-left": "-100%"}, 1000);
+        if($(".slide:nth-of-type(" + (i+1) + ")").css("margin-left") != "0px"){
+            $(".slide:nth-of-type(" + (i+1) + ")").css("opacity", "0");
+        }
+        var flag = (i == n + 1) || (i == 0 && n == imageList.length - 1) || (n==0 && i == imageList.length - 1);
+        if(flag){
+          $(".slide:nth-of-type(" + (i+1) + ")").stop().animate({"margin-left": "100%"}, 1000).css("opacity", 1);
+        }
+        else{
+          $(".slide:nth-of-type(" + (i+1) + ")").stop().animate({"margin-left": "-100%"}, 1000).css("opacity", 1);
+        }
       } 
     }
 
