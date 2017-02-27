@@ -10,7 +10,8 @@
       var markup = "";
       for(var i = 0; i < data.length; i++){
         var item = data[i];
-        markup += "<p>" + item.title + "</p>"; 
+        markup += "<h2>" + item.title + "</h2>"; 
+        markup += "<p>" + item.excerpt + "</p>"; 
       }
 
       document.getElementById("list").innerHTML = markup;
