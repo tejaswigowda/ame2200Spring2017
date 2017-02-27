@@ -7,6 +7,13 @@
     var callback = function(res){
       var data = JSON.parse(res);
       console.log(data);
+      var markup = "";
+      for(var i = 0; i < data.length; i++){
+        var item = data[i];
+        markup += "<p>" + item.title + "</p>"; 
+      }
+
+      document.getElementById("list").innerHTML = markup;
     }
 
     loadFile(filename, callback);
@@ -15,6 +22,7 @@
 
 <body>
 <h1> TESTING </h1>
+<div id='list'> </div>
 </body>
 
 
