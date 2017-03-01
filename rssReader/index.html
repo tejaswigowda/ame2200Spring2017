@@ -1,17 +1,37 @@
 <html>
 
 <head>
+<style>
+#list{
+  position: absolute;
+  left: 0px;
+  width: 200px;
+  background: rgba(0,0,0,.1);
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+#details{
+  position: absolute;
+  right: 0px;
+  width: calc(100% - 200px);
+  background: rgba(0,0,0,.05);
+}
+</style>
   <script src='asyncReq.js'></script>
   <script>
+    var rssData = [];
     var filename = "./rss.json";
     var callback = function(res){
       var data = JSON.parse(res);
-      console.log(data);
+      rssData = data;
       var markup = "";
       for(var i = 0; i < data.length; i++){
         var item = data[i];
         markup += "<h2>" + item.title + "</h2>"; 
-        markup += "<p>" + item.excerpt + "</p>"; 
+   //     markup += "<p>" + item.excerpt + "</p>"; 
+    //    markup += item.content;
+        markup += "<hr>";
       }
 
       document.getElementById("list").innerHTML = markup;
@@ -19,11 +39,13 @@
 
     loadFile(filename, callback);
   </script>
+  <base href="http://subtlepatterns.com" >
 </head>
 
 <body>
 <h1> RSS Reader </h1>
 <div id='list'> </div>
+<div id='details'> </div>
 </body>
 
 
