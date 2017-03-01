@@ -22,7 +22,8 @@
   <script>
 
     function itemSelected(index){
-      alert(index);
+      var markup = rssData[index].content;
+      document.getElementById("details").innerHTML = markup;
     }
 
     var rssData = [];
