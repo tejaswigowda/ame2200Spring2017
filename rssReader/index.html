@@ -20,6 +20,11 @@
 </style>
   <script src='asyncReq.js'></script>
   <script>
+
+    function itemSelected(index){
+      alert(index);
+    }
+
     var rssData = [];
     var filename = "./rss.json";
     var callback = function(res){
@@ -28,9 +33,9 @@
       var markup = "";
       for(var i = 0; i < data.length; i++){
         var item = data[i];
-        markup += "<h2>" + item.title + "</h2>"; 
+        markup += "<a href='javascript:itemSelected(" + i + ")'>" + item.title + "</a>"; 
    //     markup += "<p>" + item.excerpt + "</p>"; 
-    //    markup += item.content;
+    // markup += item.content;
         markup += "<hr>";
       }
 
