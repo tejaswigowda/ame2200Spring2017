@@ -4,6 +4,13 @@
 <script src='https://code.jquery.com/jquery-3.1.1.min.js'> </script>
 
 <style>
+.thumb{
+  height: 60px;
+  width: 60px;
+  background-position: 50%;
+  background-size: cover;
+}
+
 #list{
   position: absolute;
   left: 0px;
@@ -35,8 +42,8 @@
   <script>
 
     function itemSelected(index){
-      var markup = "<h2>" + rssData[index].title + "</h2>";
-      markup += rssData[index].content;
+      var markup = "<h2>" + rssData[index]["im:name"].label + "</h2>";
+      markup += "<p>" + rssData[index].summary.label + "</p>";
       document.getElementById("details").innerHTML = markup;
 
 
@@ -45,15 +52,19 @@
     }
 
     var rssData = [];
-    var filename = "./rss.json";
+    var filename = "./itunes.json";
     var callback = function(res){
-      var data = JSON.parse(res);
+      var data = JSON.parse(res).feed.entry;
       rssData = data;
       var markup = "";
       for(var i = 0; i < data.length; i++){
         var item = data[i];
-        markup += "<a href='javascript:itemSelected(" + i + ")'>" + item.title + "</a>"; 
-   //     markup += "<p>" + item.excerpt + "</p>"; 
+        var thumbURL = item["im:image"][0].label
+        markup += "<a href='javascript:itemSelected(" + i + ")'>" 
+        + "<div class='thumb' style='background-image:url(" + thumbURL + ")'></div>"
+        + "<p>" + item["im:name"].label + "</p>"
+        + "<p>" + item["im:vendorName"].label + "</p>"
+         + "</a>"; 
     // markup += item.content;
         markup += "<br>";
       }
