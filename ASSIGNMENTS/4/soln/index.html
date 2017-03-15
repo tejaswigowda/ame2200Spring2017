@@ -1,12 +1,22 @@
 <html>
 
 <head>
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width, maximum-scale=1.0">
 <script src='https://code.jquery.com/jquery-3.1.1.min.js'> </script>
 
 <style>
 #list a{
   display: block;
   padding: 5px;
+  color: black;
+}
+
+.mouse #list a:hover{
+  color: red;
+}
+
+.touch #list a:active{
+  color: red;
 }
 
 #list p{
@@ -54,7 +64,20 @@
   <script src='asyncReq.js'></script>
   <script>
     var isTouch = false;
-    var ua = navigator.userAgent;
+
+    function start(){
+      var ua = navigator.userAgent;
+      if(ua.indexOf("iPhone") >= 0 || ua.indexOf("iPad") >= 0 || ua.indexOf("Android") >= 0){
+        isTouch = true;
+      }
+      if(isTouch){
+        $("body").addClass("touch");
+      }
+      else{
+        $("body").addClass("mouse");
+      }
+    }
+
 
 
     function itemSelected(index){
@@ -93,7 +116,7 @@
   <base href="http://subtlepatterns.com" >
 </head>
 
-<body>
+<body onload='start()'>
 <h1> RSS Reader </h1>
 <div id='list'> </div>
 <div id='details'> </div>
