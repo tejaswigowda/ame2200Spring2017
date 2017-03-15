@@ -54,6 +54,8 @@
   <script src='asyncReq.js'></script>
   <script>
     var isTouch = false;
+    var ua = navigator.userAgent;
+
 
     function itemSelected(index){
       var markup = "<h2>" + rssData[index]["im:name"].label + "</h2>";
