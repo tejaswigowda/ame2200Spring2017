@@ -9,6 +9,7 @@
   display: block;
   padding: 5px;
   color: black;
+  height: 60px;
 }
 
 .mouse #list a:hover{
@@ -51,14 +52,14 @@
 #details{
   position: absolute;
   right: 0px;
-  width: calc(100% - 200px);
+  width: calc(100% - 240px);
   background: rgb(0,0,0);
   color: white;
   padding: 20px;
 }
 
 .active{
-  color: red;
+  background-color: gold;
 }
 </style>
   <script src='asyncReq.js'></script>
@@ -104,8 +105,6 @@
         + "<p>" + item["im:name"].label + "</p>"
         + "<i>" + item["im:vendorName"].label + "</i>"
          + "</a>"; 
-    // markup += item.content;
-        markup += "<br>";
       }
 
       document.getElementById("list").innerHTML = markup;
@@ -117,7 +116,7 @@
 </head>
 
 <body onload='start()'>
-<h1> RSS Reader </h1>
+<h1> iTunes Top 100</h1>
 <div id='list'> </div>
 <div id='details'> </div>
 </body>
