@@ -5,10 +5,32 @@
 <script src='https://code.jquery.com/jquery-3.1.1.min.js'> </script>
 
 <style>
+@media (max-width: 500px) {
+  #detailsW{
+    min-width: calc(100% - 40px);
+  }
+  #list{
+    min-width: 100%;
+  }
+  #back{
+    display: block;
+    color: white;
+  }
+  .condHide{
+    display: none;
+  }
+}
+
 h1{
   text-align: center;
 }
 
+@media (min-width: 500px) {
+  #back
+  {
+    display: none;
+  }
+}
 #list a{
   display: block;
   padding: 5px;
@@ -53,7 +75,7 @@ h1{
   text-decoration: none;
 }
 
-#details{
+#detailsW{
   position: absolute;
   right: 0px;
   width: calc(100% - 240px);
@@ -90,9 +112,20 @@ h1{
       markup += "<p>" + rssData[index].summary.label + "</p>";
       document.getElementById("details").innerHTML = markup;
 
+      $("#list a").removeClass('active');
+      $("#list a:nth-of-type(" + (index+1) + ")").addClass('active');
 
-       $("#list a").removeClass('active');
-       $("#list a:nth-of-type(" + (index+1) + ")").addClass('active');
+      if($(window).innerWidth() <= 500){
+         $("#list").addClass("condHide");
+         $("#detailsW").removeClass("condHide");
+      }
+    }
+
+
+    function goBack(){
+      $("#list").removeClass("condHide");
+      $("#detailsW").addClass("condHide");
+      $("#list a").removeClass('active');
     }
 
     var rssData = [];
@@ -112,7 +145,9 @@ h1{
       }
 
       document.getElementById("list").innerHTML = markup;
-      itemSelected(0);
+      if($(window).innerWidth() > 500){
+        itemSelected(0);
+      }
     }
 
     loadFile(filename, callback);
@@ -123,7 +158,10 @@ h1{
 <body onload='start()'>
 <h1> iTunes Top 100</h1>
 <div id='list'> </div>
-<div id='details'> </div>
+<div class='condHide' id='detailsW'> 
+  <button id='back' onclick='goBack()'> Back </button>
+  <div id='details'> </div>
+</div>
 </body>
 
 
