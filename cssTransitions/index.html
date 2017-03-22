@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style> 
+div {
+    width: 100px;
+    height: 100px;
+    background: red;
+    transition-duration: 1200ms;
+}
+</style>
+
+<script>
+function bClicked(x)
+{
+  document.getElementById("box").style.width = x + "px";
+  document.getElementById("box").style.height = x + "px";
+}
+</script>
+
+</head>
+<body>
+
+<p><b>Note:</b> This example does not work in Internet Explorer 9 and earlier versions.</p>
+
+<div id='box'></div>
+
+<button onclick='bClicked(300)'> 300px </button>
+<button onclick='bClicked(100)'> 100px </button>
+
+</body>
+</html>
