@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href="https://fonts.googleapis.com/css?family=News+Cycle:700" rel="stylesheet">
+<style> 
+body{
+    perspective: 480px;
+    background: black;
+    overflow: hidden;
+}
+
+#replay{
+  position: fixed;
+  right: 0px;
+}
+
+#box{
+  width: 90%;
+  height: auto;
+  transform: translate3d(0px,500px, 100px) rotate3d(1,0,0,25deg) scale(1);
+  transition-duration: 20s;  
+  top: 0px;
+  font-size: 40px;
+  left:5%;
+  position: absolute;
+  color: #ffff66;
+  font-family: 'News Cycle', sans-serif;
+}
+</style>
+
+<script>
+function start(){
+  document.getElementById("box").style.transform = 'translate3d(0px,-50%, 100px) rotate3d(1,0,0,25deg) scale(0)'
+  document.getElementById("box").style.perspective = '80px';
+}
+</script>
+
+</head>
+<body onload='start()'>
+
+  <audio preload="auto">
+    <source src="http://s.cdpn.io/1202/Star_Wars_original_opening_crawl_1977.ogg" type="audio/ogg" />
+    <source src="http://s.cdpn.io/1202/Star_Wars_original_opening_crawl_1977.mp3" type="audio/mpeg" />
+  </audio>
+
+<button id='replay' onclick='window.location.reload()'>Replay</button>
+
+<div id='box'>
+     <p>
+        It is a period of civil war.
+        Rebel spaceships, striking
+        from a hidden base, have won
+        their first victory against
+        the evil Galactic Empire.
+      </p>
+
+      <p>
+        During the battle, Rebel
+        spies managed to steal secret
+        plans to the Empire's
+        ultimate weapon, the DEATH
+        STAR, an armored space
+        station with enough power to
+        destroy an entire planet.
+      </p>
+
+      <p>
+        Pursued by the Empire's
+        sinister agents, Princess
+        Leia races home aboard her
+        starship, custodian of the
+        stolen plan that can save
+        her people and restore
+        freedom to the galaxy....
+      </p>
+</div>
+
+
+</body>
+</html>

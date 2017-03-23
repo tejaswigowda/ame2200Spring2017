@@ -2,12 +2,18 @@
 <html>
 <head>
 <style> 
+body{
+    perspective: 480px;
+}
+
 div {
-    width: 300px;
-    height: 100px;
-    background-color: yellow;
-    border: 1px solid black;
-    transform: translate(150px,100px);
+  width: 300px;
+  height: 100px;
+  background-color: yellow;
+  border: 1px solid black;
+  transform: translate3d(258px,108px, 100px) rotate3d(1,1,0,214deg) scale(3);
+  transition-property: transform;
+  transition-duration: 1s;  
 }
 </style>
 
