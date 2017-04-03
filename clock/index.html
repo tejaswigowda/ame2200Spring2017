@@ -4,8 +4,49 @@
 <head>
   <title> Clock </title>
   <script src='https://code.jquery.com/jquery-3.2.0.min.js'> </script>
+  <script>
+    function start(){
+        renderTime(); 
+        setInterval("renderTime()", 1000);
+    }
+    function renderTime()
+    {
+      var h = new Date().getHours()
+      var m = new Date().getMinutes()
+      var s = new Date().getSeconds()
+
+      var ha = h * 30 - 90;
+      var ma = m * 6 - 90;
+      var sa = s * 6 - 90;
+
+      document.getElementById("hour").style.transform = 'translate(150px, 150px) rotate('+ ha +'deg)';
+      document.getElementById("min").style.transform = 'translate(150px, 150px) rotate('+ ma +'deg)';
+      document.getElementById("sec").style.transform = 'translate(150px, 150px) rotate('+ sa +'deg)';
+    }
+  </script>
 
   <style>
+  #hour{
+     height: 3px;
+     width: 100px;
+     background: black;
+     transform: translate(150px, 150px) rotate(73deg);
+  }
+  #min{
+     height: 2px;
+     width: 120px;
+     background: black;
+     transform: translate(150px, 150px) rotate(173deg);
+  }
+  #sec{
+     height: 1px;
+     width: 140px;
+     background: red;
+     transform: translate(150px, 150px) rotate(7deg);
+  }
+  .needle{
+    transform-origin: 0px 0px;
+  }
   #clockDial{
    margin: auto;
    height: 300px;
@@ -18,6 +59,7 @@
      text-align: right;
      transform-origin: 0px 0px;
      position: absolute;
+     font-size: 60px;
      line-height: 0px;
   }
   #n1{
@@ -59,7 +101,7 @@
   </style>
 </head>
 
-<body>
+<body onload='start()'>
 
 <div id='theClockWrapper'>
   <div id='clockDial'>
