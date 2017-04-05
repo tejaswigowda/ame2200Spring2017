@@ -6,6 +6,15 @@
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
 <style>
+#overlay{
+   position: fixed;
+   width: 100%;
+   height: 100%;
+   top: 0px;
+   left: 0px;
+   background: rgba(0,0,0,.7);
+}
+
 @media (max-width: 500px) {
   #detailsW{
     min-width: calc(100% - 40px);
@@ -162,6 +171,10 @@ h1{
 <div class='condHide' id='detailsW'> 
   <button id='back' onclick='goBack()'> Back </button>
   <div id='details'> </div>
+</div>
+<div id='overlay'>
+  <div id='spinner' class='fa fa-repeat'>
+  </div>
 </div>
 </body>
 
