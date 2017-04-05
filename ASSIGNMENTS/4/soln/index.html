@@ -4,6 +4,7 @@
 <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width, maximum-scale=1.0">
 <script src='https://code.jquery.com/jquery-3.1.1.min.js'> </script>
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css" />
 
 <style>
 #overlay{
@@ -15,6 +16,29 @@
    background: rgba(0,0,0,.7);
 }
 
+@keyframes infSpinning {
+    0% {transform: rotate(0deg);}
+    100% {transform: rotate(360deg);}
+}
+
+.aniSpin{
+  animation-name: infSpinning;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  transition-timing-function: linear;
+}
+
+
+#spinner{
+  color: white;
+  font-size: 50px;
+  margin: auto;
+  display: block;
+  height: 50px;
+  width: 50px;
+  text-align: center;
+  margin-top: 200px;
+}
 @media (max-width: 500px) {
   #detailsW{
     min-width: calc(100% - 40px);
@@ -118,6 +142,8 @@ h1{
 
 
     function itemSelected(index){
+      $("#overlay").fadeIn()
+      $("#detailsW").removeClass("animated rotateIn");
       var markup = "<h2>" + rssData[index]["im:name"].label + "</h2>";
       markup += "<p>" + rssData[index].summary.label + "</p>";
       document.getElementById("details").innerHTML = markup;
@@ -129,6 +155,8 @@ h1{
          $("#list").addClass("condHide");
          $("#detailsW").removeClass("condHide");
       }
+      $("#overlay").fadeOut()
+      $("#detailsW").addClass("animated rotateIn");
     }
 
 
@@ -147,7 +175,7 @@ h1{
       for(var i = 0; i < data.length; i++){
         var item = data[i];
         var thumbURL = item["im:image"][0].label
-        markup += "<a href='javascript:itemSelected(" + i + ")'>" 
+        markup += "<a class='animated slideInLeft' href='javascript:itemSelected(" + i + ")'>" 
         + "<div class='thumb' style='background-image:url(" + thumbURL + ")'></div>"
         + "<p>" + item["im:name"].label + "</p>"
         + "<i>" + item["im:vendorName"].label + "</i>"
@@ -173,7 +201,7 @@ h1{
   <div id='details'> </div>
 </div>
 <div id='overlay'>
-  <div id='spinner' class='fa fa-repeat'>
+  <div id='spinner' class='fa fa-repeat aniSpin'>
   </div>
 </div>
 </body>
