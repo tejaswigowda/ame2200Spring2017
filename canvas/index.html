@@ -1,0 +1,76 @@
+<html>
+<head>
+<title>
+  Image Resizer
+</title>
+<style>
+  #imagePreview{
+      display: block;
+  }
+</style>
+<script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+      integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+    crossorigin="anonymous"></script>
+
+<script>
+var MAX_WIDTH = 500;
+var MAX_HEIGHT = 500;
+var imageUploaded = function()
+{
+   var file = $('#uploadImage').get(0);
+   if(file.files[0].type.split("/")[0].toLowerCase() != "image"){
+        alert("Incorrect file type -- Please ensure you are uploading an image file.");
+        return;
+   }
+   MAX_WIDTH = parseFloat(document.getElementById("iWidth").value);
+   MAX_HEIGHT = parseFloat(document.getElementById("iHeight").value);
+   if ( file.files && file.files[0] && file.files[0].type.split("/")[0].toLowerCase() === "image") {
+        var FR = new FileReader();
+        FR.onload = function(e) {
+            var data = e.target.result;
+            var canvas = document.createElement("canvas");
+            var img = document.createElement("img");
+            img.onload= function(){
+                 var width = img.width;
+                 var height = img.height;
+                 var w2 = MAX_WIDTH;
+                 var h2 = MAX_HEIGHT;
+                 if (width > height) {
+                     if (width > MAX_WIDTH) {
+                        w2 = MAX_WIDTH;
+                        h2 = height * MAX_WIDTH / width;
+                    }
+                 } else {
+                     if (height > MAX_HEIGHT) {
+                        h2 = MAX_HEIGHT;
+                        w2 = width * MAX_HEIGHT / height;
+                    }
+                }
+                canvas.width = MAX_WIDTH;
+                canvas.height = MAX_HEIGHT;
+                var ctx = canvas.getContext("2d");
+                ctx.drawImage(img, 0, 0, w2, h2);
+                var base64St = canvas.toDataURL("image/png");
+                document.getElementById("imagePreview").src = base64St;
+                document.getElementById("imagePreview").style.height = MAX_HEIGHT + "px";
+                document.getElementById("imagePreview").style.width= MAX_WIDTH + "px";
+            }
+            img.src = data;
+        };  
+        FR.readAsDataURL( file.files[0] );
+   }
+}
+</script>
+
+</head>
+
+<body>
+  <input type="file" name="uploadImage" id="uploadImage" onchange="imageUploaded()">
+  <input type="number" placeholder="Height(px)" id="iHeight" value='200'  onchange="imageUploaded()">
+  <input type="number" placeholder="Width(px)" id="iWidth" value='200' onchange="imageUploaded()">
+  <img id="imagePreview">
+</body>
+
+
+</html>
