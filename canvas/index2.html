@@ -35,6 +35,15 @@ var imageUploaded = function()
               renderIcon(canvas, img, 128, 128);  
             }
             img.src = data;
+
+            var canvas1 = document.createElement("canvas");
+            var img1 = document.createElement("img");
+            img1.onload= function(){
+              renderIcon(canvas1, img1, 256, 256);  
+            }
+            img1.src = data;
+
+
         };  
         FR.readAsDataURL( file.files[0] );
    }
@@ -63,9 +72,10 @@ function renderIcon(canvas, img, h, w)
                 ctx.drawImage(img, 0, 0, w2, h2);
                 var base64St = canvas.toDataURL("image/png");
                 var mu = "";
-                mu += "<img height=" + h + " width=" + w + " src=" + base64St + ">";
+                mu += h + "px x " + w + "px</br>"
+                mu += "<img height=" + h + " width=" + w + " src=" + base64St + "><hr>";
 
-                document.getElementById("imagePreviewWrapper").innerHTML = mu;
+                document.getElementById("imagePreviewWrapper").innerHTML += mu;
 }
 </script>
 
