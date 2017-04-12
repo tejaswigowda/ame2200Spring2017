@@ -63,7 +63,7 @@ function renderIcon(canvas, img, h, w)
                 ctx.drawImage(img, 0, 0, w2, h2);
                 var base64St = canvas.toDataURL("image/png");
                 var mu = "";
-                mu += "<img height=" + MAX_HEIGHT + " width=" + MAX_WIDTH + " src=" + base64St + ">";
+                mu += "<img height=" + h + " width=" + w + " src=" + base64St + ">";
 
                 document.getElementById("imagePreviewWrapper").innerHTML = mu;
 }
