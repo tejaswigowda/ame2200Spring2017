@@ -54,9 +54,16 @@ var imageUploaded = function()
                 var ctx = canvas.getContext("2d");
                 ctx.drawImage(img, 0, 0, w2, h2);
                 var base64St = canvas.toDataURL("image/png");
+                var mu = "";
+                mu += "<img height=" + MAX_HEIGHT + " width=" + MAX_WIDTH + " src=" + base64St + ">";
+
+                document.getElementById("imagePreviewWrapper").innerHTML = mu;
+
+                /*
                 document.getElementById("imagePreview").src = base64St;
                 document.getElementById("imagePreview").style.height = MAX_HEIGHT + "px";
                 document.getElementById("imagePreview").style.width= MAX_WIDTH + "px";
+               */
             }
             img.src = data;
         };  
@@ -71,7 +78,7 @@ var imageUploaded = function()
   <input type="file" name="uploadImage" id="uploadImage" onchange="imageUploaded()">
   <input type="number" placeholder="Height(px)" id="iHeight" value='200'  onchange="imageUploaded()">
   <input type="number" placeholder="Width(px)" id="iWidth" value='200' onchange="imageUploaded()">
-  <img id="imagePreview">
+  <div id="imagePreviewWrapper"> </div>
 </body>
 
 
