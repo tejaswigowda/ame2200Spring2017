@@ -29,6 +29,7 @@ var imageUploaded = function()
         FR.onload = function(e) {
             var data = e.target.result;
             console.log(data);
+
             var canvas = document.createElement("canvas");
             var img = document.createElement("img");
             img.onload= function(){
