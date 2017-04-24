@@ -8,6 +8,6 @@ It needs to have (at-least) the following menu items
 - Splash
 - Education
 - Projects
-- Awards/Skils
+- Awards/Skills
 - Contact (embed [Google Form](https://docs.google.com/forms)). 
 
